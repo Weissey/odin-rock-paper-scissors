@@ -2,13 +2,6 @@
 let playerScore = 0;
 let computerScore = 0;
 
-//Determines computer's decision, which then gets assigned to computerPlay later
-let getComputerDecision = getRandomInt(3);
-//Function to get a random integer between 1, 2, or 3
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max)
-}
-
 //Prompts user to enter input
 let playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
 
@@ -18,6 +11,7 @@ game();
 
 //Randomly returns 'Rock', 'Paper', or 'Scissors' based on getRandomInt function
 function computerPlay() {
+    let getComputerDecision = Math.floor(Math.random() * 3);
     if (getComputerDecision === 0) {
         return 'rock';
     } else if (getComputerDecision === 1) {
@@ -67,26 +61,41 @@ function showScore () {
     return 'The score currently is PLAYER: ' + playerScore + ', VS COMPUTER: ' + computerScore;
 }
 
+//Function to declare who won after 5 rounds
+function declareWinOrLose() {
+    if (playerScore > computerScore) {
+        return 'THE GAME IS OVER! YOU WIN!';
+    } else if (playerScore < computerScore) {
+        return 'THE GAME IS OVER! YOU LOST!';
+    } else if (playerScore === computerScore) {
+        return 'THE GAME IS OVER! IT\'S A TIE!';
+    }
+}
+
 //Function to play 5 rounds and declare winner and loser
 function game () {
     playRound ();
     console.log(playRound(playerSelection, computerSelection));
     console.log(showScore());
     playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
+    computerSelection = computerPlay();
     playRound ();
     console.log(playRound(playerSelection, computerSelection));
     console.log(showScore());
     playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
+    computerSelection = computerPlay();
     playRound ();
     console.log(playRound(playerSelection, computerSelection));
     console.log(showScore());
     playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
+    computerSelection = computerPlay();
     playRound ();
     console.log(playRound(playerSelection, computerSelection));
     console.log(showScore());
     playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
-    playRound ();
+    computerSelection = computerPlay();
     console.log(playRound(playerSelection, computerSelection));
     console.log(showScore());
-    playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
+    //Declare who won and lost
+    console.log(declareWinOrLose());
 }
