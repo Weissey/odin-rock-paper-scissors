@@ -9,6 +9,13 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max)
 }
 
+//Prompts user to enter input
+let playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
+
+computerSelection = computerPlay();
+
+game();
+
 //Randomly returns 'Rock', 'Paper', or 'Scissors' based on getRandomInt function
 function computerPlay() {
     if (getComputerDecision === 0) {
@@ -19,7 +26,6 @@ function computerPlay() {
         return 'scissors';
     }
 }
-
 
 //Function to play a single round
 function playRound (playerSelection, computerSelection) {
@@ -56,4 +62,31 @@ function playRound (playerSelection, computerSelection) {
     }
 }
 
-let playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
+//Function to display both entities' score
+function showScore () {
+    return 'The score currently is PLAYER: ' + playerScore + ', VS COMPUTER: ' + computerScore;
+}
+
+//Function to play 5 rounds and declare winner and loser
+function game () {
+    playRound ();
+    console.log(playRound(playerSelection, computerSelection));
+    console.log(showScore());
+    playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
+    playRound ();
+    console.log(playRound(playerSelection, computerSelection));
+    console.log(showScore());
+    playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
+    playRound ();
+    console.log(playRound(playerSelection, computerSelection));
+    console.log(showScore());
+    playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
+    playRound ();
+    console.log(playRound(playerSelection, computerSelection));
+    console.log(showScore());
+    playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
+    playRound ();
+    console.log(playRound(playerSelection, computerSelection));
+    console.log(showScore());
+    playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
+}
