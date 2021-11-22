@@ -1,3 +1,9 @@
+//Initializes score values of both entities
+let playerScore = 0;
+let computerScore = 0;
+
+//Determines computer's decision, which then gets assigned to computerPlay later
+let getComputerDecision = getRandomInt(3);
 //Function to get a random integer between 1, 2, or 3
 function getRandomInt(max) {
     return Math.floor(Math.random() * max)
@@ -14,5 +20,40 @@ function computerPlay() {
     }
 }
 
-//Determines computer's decision, which then gets assigned to computerPlay later
-let getComputerDecision = getRandomInt(3);
+
+//Function to play a single round
+function playRound (playerSelection, computerSelection) {
+    if (playerSelection === 'rock') {
+        if (computerSelection === 'paper') {
+            computerScore++;
+            return 'You lose! Paper beats rock.';
+        } else if (computerSelection === 'scissors') {
+            playerScore++;
+            return 'You win! Rock beats scissors.';
+        } else {
+            return 'It\'s a tie';
+        }
+    } else if (playerSelection === 'paper') {
+        if (computerSelection === 'rock') {
+            playerScore++;
+            return 'You win! Paper beats rock.';
+        } else if (computerSelection === 'scissors') {
+            computerScore++;
+            return 'You lose! Scissors beats paper.';
+        } else {
+            return 'It\s a tie.';
+        }
+    } else if (playerSelection === 'scissors') {
+        if (computerSelection === 'rock') {
+            computerScore++;
+            return 'You lose! Rock beats scissors.';
+        } else if (computerSelection === 'paper') {
+            playerScore++;
+            return 'You win! Scissors beats paper.';
+        } else {
+            return 'It\'s a tie';
+        }
+    }
+}
+
+let playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
