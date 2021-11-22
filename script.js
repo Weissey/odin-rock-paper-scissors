@@ -5,7 +5,7 @@ let computerScore = 0;
 //Prompts user to enter input
 let playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
 
-computerSelection = computerPlay();
+let computerSelection = computerPlay();
 
 game();
 
