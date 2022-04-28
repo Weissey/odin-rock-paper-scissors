@@ -73,29 +73,4 @@ function declareWinOrLose() {
 }
 
 //Function to play 5 rounds and declare winner and loser
-function game () {
-    playRound ();
-    console.log(playRound(playerSelection, computerSelection));
-    console.log(showScore());
-    playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
-    computerSelection = computerPlay();
-    playRound ();
-    console.log(playRound(playerSelection, computerSelection));
-    console.log(showScore());
-    playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
-    computerSelection = computerPlay();
-    playRound ();
-    console.log(playRound(playerSelection, computerSelection));
-    console.log(showScore());
-    playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
-    computerSelection = computerPlay();
-    playRound ();
-    console.log(playRound(playerSelection, computerSelection));
-    console.log(showScore());
-    playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
-    computerSelection = computerPlay();
-    console.log(playRound(playerSelection, computerSelection));
-    console.log(showScore());
-    //Declare who won and lost
-    console.log(declareWinOrLose());
-}
+//DELETED
