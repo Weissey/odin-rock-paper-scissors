@@ -6,6 +6,7 @@ let computerScore = 0;
 let playerSelection;
 let computerSelection;
 
+//Initializes DOM methods
 const buttons = document.querySelectorAll('button');
 const div = document.querySelector('div');
 const activeDiv = document.querySelector(".activeDiv");
