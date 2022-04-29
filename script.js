@@ -1,4 +1,4 @@
-//Initializes score values of both entities
+//Initializes score values
 let playerScore = 0;
 let computerScore = 0;
 
@@ -11,13 +11,7 @@ const div = document.querySelector('div');
 
 buttons.forEach(button => button.addEventListener('click', decidePlayer));
 
-const score = playerScore.addEventListener('change', updateScore);
-
-div.textContent = updateScore(); 
-
-function updateScore() {
-    return `The score currently is PLAYER: ${playerScore} VS COMPUTER: ${computerScore}`;
-}
+div.textContent = `The score currently is PLAYER: ${playerScore} VS COMPUTER: ${computerScore}`;
 
 //Decides playerSelection value, then plays a round. Occurs everytime the player presses a button
 function decidePlayer() {
@@ -70,16 +64,24 @@ function playRound (playerSelection, computerSelection) {
         }
     }
     console.log(playerScore, computerScore);
-
+    div.textContent = `The score currently is PLAYER: ${playerScore} VS COMPUTER: ${computerScore}`;
+    
+    if (playerScore === 5 || computerScore === 5) {
+        endGame();
+    }
 }
 
 //Function to declare who won after 5 rounds
-function declareWinOrLose() {
+function endGame() {
     if (playerScore > computerScore) {
-        return 'THE GAME IS OVER! YOU WIN!';
+        div.textContent = 'The game is over, you win.';
     } else if (playerScore < computerScore) {
-        return 'THE GAME IS OVER! YOU LOST!';
+        div.textContent = 'The game is over, you lost.';
     } else if (playerScore === computerScore) {
-        return 'THE GAME IS OVER! IT\'S A TIE!';
+        div.textContent = 'The game is over, it\'s a tie.';
+    }
+    let collection = document.querySelectorAll('button');
+    for (const elem of collection) {
+        elem.remove();
     }
 }
