@@ -87,8 +87,5 @@ function endGame() {
     for (const elem of collection) {
         elem.remove();
     }
-    let scoreDiv = document.querySelector('.activeDiv');
-    for (const elem of scoreDiv) {
-        elem.remove();
-    }
+    activeDiv.remove();
 }
