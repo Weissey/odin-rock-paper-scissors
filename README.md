@@ -11,3 +11,16 @@ Newly learned JS:
 - How to get new inputs from the user with repeated prompts
 - How to use console.log to correctly output return statements from functions, instead of the raw code
 - How to use concatenation with strings and variables within a function, then later using console.log on the function to display the results
+
+4-29-2022 UPDATE
+
+Revisiting this project after learning so many new information makes me feel that there's so much potential to optimize this code, but I just don't know how to properly maximize the efficiency yet. I removed portions of code I didn't need anymore and added new DOM methods to create a dynamic environment in which HTML elements updated dependent on user input and JavaScript variables.
+
+Newly learned JS:
+- Convert string variable into all uppercase
+- How to use selectors and bind text content to them
+- Class list values
+- Callback functions, specifically using the function computerPlay() as an argument in the function playRound()
+- More use of template literals
+- the Element.remove() method
+- Using a for of loop to loop through a nodelist and delete all nodes within
