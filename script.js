@@ -2,12 +2,37 @@
 let playerScore = 0;
 let computerScore = 0;
 
-//Prompts user to enter input
-let playerSelection = prompt('Please enter in one of the following choices: rock, paper, or scissors.').toLowerCase();
+//Initializes core variables
+let playerSelection;
+let computerSelection;
 
-let computerSelection = computerPlay();
+const buttons = document.querySelectorAll('button');
+const div = document.querySelector('div');
 
-game();
+buttons.forEach(button => button.addEventListener('click', decidePlayer));
+
+const score = playerScore.addEventListener('change', updateScore);
+
+div.textContent = updateScore(); 
+
+function updateScore() {
+    return `The score currently is PLAYER: ${playerScore} VS COMPUTER: ${computerScore}`;
+}
+
+//Decides playerSelection value, then plays a round. Occurs everytime the player presses a button
+function decidePlayer() {
+    if (this.classList.value === 'rock') {
+        playerSelection = 'rock';
+        playRound(playerSelection, computerPlay());
+    } else if (this.classList.value === 'paper') {
+        playerSelection = 'paper';
+        playRound(playerSelection, computerPlay());
+    } else {
+        playerSelection = 'scissors';
+        playRound(playerSelection, computerPlay());
+    }
+}
+
 
 //Randomly returns 'Rock', 'Paper', or 'Scissors' based on getRandomInt function
 function computerPlay() {
@@ -23,42 +48,29 @@ function computerPlay() {
 
 //Function to play a single round
 function playRound (playerSelection, computerSelection) {
+    console.log(playerSelection, computerSelection);
+
     if (playerSelection === 'rock') {
         if (computerSelection === 'paper') {
             computerScore++;
-            return 'You lose! Paper beats rock.';
         } else if (computerSelection === 'scissors') {
             playerScore++;
-            return 'You win! Rock beats scissors.';
-        } else {
-            return 'It\'s a tie';
         }
     } else if (playerSelection === 'paper') {
         if (computerSelection === 'rock') {
             playerScore++;
-            return 'You win! Paper beats rock.';
         } else if (computerSelection === 'scissors') {
             computerScore++;
-            return 'You lose! Scissors beats paper.';
-        } else {
-            return 'It\s a tie.';
-        }
+        } 
     } else if (playerSelection === 'scissors') {
         if (computerSelection === 'rock') {
             computerScore++;
-            return 'You lose! Rock beats scissors.';
         } else if (computerSelection === 'paper') {
             playerScore++;
-            return 'You win! Scissors beats paper.';
-        } else {
-            return 'It\'s a tie';
         }
     }
-}
+    console.log(playerScore, computerScore);
 
-//Function to display both entities' score
-function showScore () {
-    return 'The score currently is PLAYER: ' + playerScore + ', VS COMPUTER: ' + computerScore;
 }
 
 //Function to declare who won after 5 rounds
@@ -71,6 +83,3 @@ function declareWinOrLose() {
         return 'THE GAME IS OVER! IT\'S A TIE!';
     }
 }
-
-//Function to play 5 rounds and declare winner and loser
-//DELETED
