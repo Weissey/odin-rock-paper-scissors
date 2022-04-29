@@ -78,11 +78,11 @@ function playRound (playerSelection, computerSelection) {
 //Function to declare who won after 5 rounds
 function endGame() {
     if (playerScore > computerScore) {
-        div.textContent = 'The game is over, you win.';
+        div.innerHTML = `The game is over, you win.<br/>Please refresh the page to play again.`;
     } else if (playerScore < computerScore) {
-        div.textContent = 'The game is over, you lost.';
+        div.innerHTML = 'The game is over, you lost.<br/>Please refresh the page to play again.';
     } else if (playerScore === computerScore) {
-        div.textContent = 'The game is over, it\'s a tie.';
+        div.innerHTML = 'The game is over, it\'s a tie.<br/>Please refresh the page to play again.';
     }
     let collection = document.querySelectorAll('button');
     for (const elem of collection) {
