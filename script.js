@@ -8,10 +8,12 @@ let computerSelection;
 
 const buttons = document.querySelectorAll('button');
 const div = document.querySelector('div');
-
-buttons.forEach(button => button.addEventListener('click', decidePlayer));
+const activeDiv = document.querySelector(".activeDiv");
 
 div.textContent = `The score currently is PLAYER: ${playerScore} VS COMPUTER: ${computerScore}`;
+activeDiv.textContent = 'Let\'s begin!';
+
+buttons.forEach(button => button.addEventListener('click', decidePlayer));
 
 //Decides playerSelection value, then plays a round. Occurs everytime the player presses a button
 function decidePlayer() {
@@ -65,6 +67,7 @@ function playRound (playerSelection, computerSelection) {
     }
     console.log(playerScore, computerScore);
     div.textContent = `The score currently is PLAYER: ${playerScore} VS COMPUTER: ${computerScore}`;
+    activeDiv.textContent = 'You chose ' + playerSelection.toUpperCase() + ', your opponent chose ' + computerSelection.toUpperCase();
     
     if (playerScore === 5 || computerScore === 5) {
         endGame();
@@ -82,6 +85,10 @@ function endGame() {
     }
     let collection = document.querySelectorAll('button');
     for (const elem of collection) {
+        elem.remove();
+    }
+    let scoreDiv = document.querySelector('.activeDiv');
+    for (const elem of scoreDiv) {
         elem.remove();
     }
 }
